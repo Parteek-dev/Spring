@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:context="http://www.springframework.org/schema/context"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:p="http://www.springframework.org/schema/p"
+   xmlns:c="http://www.springframework.org/schema/c"
+   xmlns:tx="http://www.springframework.org/schema/tx"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+    http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+    
+    <tx:annotation-driven />
+    
+<!--     WARN: Establishing SSL connection without server's identity verification is not recommended. 
+    According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established 
+    by default if explicit option isn't set. For compliance with existing applications not using 
+    SSL the verifyServerCertificate property is set to 'false'. You need either to explicitly 
+    disable SSL by setting useSSL=false, or set useSSL=true and provide trust store for server 
+    certificate verification. -->
+    
+<!--     Data source -->
+    <bean class="org.springframework.jdbc.datasource.DriverManagerDataSource"  id="ds">
+    <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+    <property name="url" value="jdbc:mysql://localhost:3306/spring_db?autoReconnect=true&amp;useSSL=false" />
+    <property name="username" value="root" />
+    <property name="password" value="root" />
+    </bean>
+    
+<!--     LocalSessionFactoryBean -->
+    <bean class="org.springframework.orm.hibernate5.LocalSessionFactoryBean"  id="localSessionFactoryBean" >
+    
+<!--    Pass DataSource reference  -->
+    <property name="dataSource" ref="ds"></property>
+    
+<!--     Hibernate Properties -->
+    <property name="hibernateProperties">
+    <props>
+    <prop key="hibernate.dialect">org.hibernate.dialect.MySQL57Dialect</prop>
+    <prop key="hibernate.show_sql">true</prop>
+    <prop key="hibernate.hbm2ddl.auto">update</prop>
+    </props>
+    </property>
+    
+<!--     Annotated Classes -->
+    <property name="annotatedClasses">
+    <list>
+    <value>com.spring.orm.entities.Student</value>
+    </list>
+    </property>
+    </bean>
+    
+<!--     HibernateTemplate -->
+    <bean class="org.springframework.orm.hibernate5.HibernateTemplate"  id="hibernateTemplate" >
+    <property name="sessionFactory" ref="localSessionFactoryBean"></property>
+    </bean>
+    
+<!--     StudentDao -->
+    <bean class="com.spring.orm.dao.StudentDao" id="studentDao">
+    <property name="hibernateTemplate" ref="hibernateTemplate" />
+    </bean>
+    
+    <!-- For perform write operations -->
+    <bean class="org.springframework.orm.hibernate5.HibernateTransactionManager"  id="transactionManager" >
+    <property name="sessionFactory" ref="localSessionFactoryBean"></property>
+    </bean>
+    
+    </beans>

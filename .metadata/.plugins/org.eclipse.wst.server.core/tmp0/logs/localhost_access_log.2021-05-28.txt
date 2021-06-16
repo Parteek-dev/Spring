@@ -1,0 +1,16 @@
+127.0.0.1 - - [28/May/2021:08:43:56 +0530] "GET / HTTP/1.1" 404 751
+0:0:0:0:0:0:0:1 - - [28/May/2021:08:43:59 +0530] "GET /spring-mvc/ HTTP/1.1" 200 51
+0:0:0:0:0:0:0:1 - - [28/May/2021:08:44:07 +0530] "GET /spring-mvc/test HTTP/1.1" 200 100
+0:0:0:0:0:0:0:1 - - [28/May/2021:09:00:38 +0530] "GET /spring-mvc/help HTTP/1.1" 200 232
+0:0:0:0:0:0:0:1 - - [28/May/2021:09:01:30 +0530] "GET /spring-mvc/help HTTP/1.1" 200 253
+0:0:0:0:0:0:0:1 - - [28/May/2021:09:03:05 +0530] "GET /spring-mvc/help HTTP/1.1" 200 332
+0:0:0:0:0:0:0:1 - - [28/May/2021:09:04:40 +0530] "GET /spring-mvc/test HTTP/1.1" 200 100
+0:0:0:0:0:0:0:1 - - [28/May/2021:09:11:51 +0530] "GET /spring-mvc/testService HTTP/1.1" 404 682
+0:0:0:0:0:0:0:1 - - [28/May/2021:09:12:02 +0530] "GET /spring-mvc/service HTTP/1.1" 200 316
+0:0:0:0:0:0:0:1 - - [28/May/2021:09:16:57 +0530] "GET /spring-mvc/hello HTTP/1.1" 200 156
+0:0:0:0:0:0:0:1 - - [28/May/2021:10:42:10 +0530] "GET /spring-mvc/helpUsingEL HTTP/1.1" 200 276
+0:0:0:0:0:0:0:1 - - [28/May/2021:10:42:55 +0530] "GET /spring-mvc/helpUsingEL HTTP/1.1" 200 333
+0:0:0:0:0:0:0:1 - - [28/May/2021:10:43:21 +0530] "GET /spring-mvc/helpUsingEL HTTP/1.1" 200 383
+0:0:0:0:0:0:0:1 - - [28/May/2021:10:50:30 +0530] "GET /spring-mvc/helpUsingEL HTTP/1.1" 200 559
+0:0:0:0:0:0:0:1 - - [28/May/2021:10:51:33 +0530] "GET /spring-mvc/helpUsingEL HTTP/1.1" 200 620
+0:0:0:0:0:0:0:1 - - [28/May/2021:10:52:47 +0530] "GET /spring-mvc/helpUsingEL HTTP/1.1" 200 697

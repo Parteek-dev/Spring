@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:context="http://www.springframework.org/schema/context"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xmlns:p="http://www.springframework.org/schema/p"
+   xmlns:c="http://www.springframework.org/schema/c"
+ xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+    http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+<context:annotation-config></context:annotation-config>
+ 
+ <bean id="student" class="com.spring.Student">
+ <!-- collaborators and configuration for this bean go here -->
+ <property name ="id">
+ <value>22</value>
+ </property>
+ 
+ <property name ="name">
+ <value>Parteek Sethi</value>
+ </property>
+ 
+ <property name ="address">
+ <value>New Delhi, India</value>
+ </property>
+ 
+ </bean>
+ 
+ <bean id="student1" class="com.spring.Student">
+ 
+ <property name ="id" value = "22" />
+ <property name ="name" value = "Sethi Saab" /> 
+ <property name ="address" value = "Uttam Nagar" />
+ 
+ </bean>
+ 
+  <bean id="student2" class="com.spring.Student" p:id="123" p:name ="pSechma" p:address= "P address demo" />
+  
+  <!-- Employee bean -->
+  <!-- Using P sechma for ref injection -->
+  <bean id="emp" class="com.spring.emp.Employee" p:objCmp-ref="comp"> 
+	<property name ="empName" value = "Parteek Kumar" />
+	
+	<property name ="qualification">
+	<list>
+	<value>MCA</value>
+	<value>BCA</value>
+	<value>12th</value>
+	<value>10th</value>
+	</list>
+	</property>
+	
+	<property name="address">
+	<set>
+	<value>New Delhi</value>
+	<value>USA</value>
+	<value>Noida</value>
+	</set>
+	</property>
+	
+	<property name="courses">
+	<map>
+	<entry key="012" value="Java, March 2021"/>
+	<entry  key="023" value="Python, April 2021"/>
+	<entry  key="034" value="AI, MAY 2021"/>
+	</map>
+	
+	</property>
+	
+	<property name="empProp">
+	<props>
+	<prop key="TestConnection">OK</prop>
+	<prop key="test">Testing....</prop>
+	
+	</props>
+	</property>
+	
+<!-- 	<property name="objCmp" ref="comp" /> -->
+	
+		</bean>
+		
+	 <!-- Company bean -->
+	 
+	 <bean id="comp" class="com.spring.comp.Company" p:name="Infogain" p:address="Noida, UP" p:rank ="1" />
+
+
+<!-- Constructor Injection -->
+<bean class="com.spring.certificate.Certificate" id="cert1">
+<constructor-arg value="Java 11 Certificate" />
+<constructor-arg>
+<list>
+<value>Manish Bhatia</value>
+<value>Rijavan Ansari</value>
+</list>
+</constructor-arg> 
+</bean>
+
+<bean class="com.spring.certificate.Certificate" id="cert2" c:name="Spring Boot Certificate">
+<constructor-arg>
+<list>
+<value>Manish Bhatia</value>
+<value>Rijavan Ansari</value>
+</list>
+</constructor-arg> 
+</bean>
+
+<bean id="person" class="com.spring.person.Person">
+<constructor-arg value="Parteek Kumar" />
+<constructor-arg> 
+<list>
+<ref bean="cert1"/>
+<ref bean="cert2"/>
+</list>
+</constructor-arg>
+</bean>
+
+<!-- <bean id="add" class="com.spring.addition.Addition" c:a="10" c:b="20"/> -->
+<!-- defined type and index to remove ambiguity -->
+<bean id="add" class="com.spring.addition.Addition">
+<constructor-arg value="10" type="double" index="0"/>
+<constructor-arg value="20" type="double" index="1"/>
+
+</bean>
+
+<bean class="com.spring.lifecycle.Pepsi" id="pep" p:size="1" p:price="10" init-method="init"
+destroy-method="destroy"/>
+
+<bean class="com.spring.lifecycle.LifcycleUsingInterface" id="l1" p:size="2" p:price="50" />
+
+<bean class="com.spring.lifecycle.LifecycleUsingAnno" id="anno" p:size="5" p:price="100" />
+ 
+ 
+ </beans>
+ 
+ 

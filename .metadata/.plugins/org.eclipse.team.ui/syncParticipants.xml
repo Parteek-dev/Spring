@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<syncparticipants>
+<participant displayName="Git (Servers, Spri...ect, SpringORM)" id="org.eclipse.egit.ui.modelCompareParticipant" secondary_id="1623598892542">
+<data forceFetch="false" root="false">
+<org.eclipse.team.ui.MODEL_PARTICIPANT_SETTINGS org.eclipse.team.ui.MODEL_PARTICIPANT_DESCRIPTION="Servers, Spri...ect, SpringORM" startupAction="none">
+<org.eclipse.team.ui.MODEL_PARTICIPANT_REFRESH_SCHEDULE org.eclipse.team.ui.CTX_REFRESHSCHEDULE_ENABLED="false" org.eclipse.team.ui.CTX_REFRESHSCHEDULE_INTERVAL="3600" org.eclipse.team.ui.CTX_REFRESHSCHEDULE_RUNONCE="false"/>
+<org.eclipse.team.ui.MODEL_PARTICIPANT_MAPPINGS modelProviderId="org.eclipse.core.resources.modelProvider">
+<mappings>
+<resources resourcePath="/SpringJdbc" resourceType="4"/>
+<resources resourcePath="/Servers" resourceType="4"/>
+<resources resourcePath="/spring-mvc" resourceType="4"/>
+<resources resourcePath="/SpringJDBCByJavaConfig" resourceType="4"/>
+<resources resourcePath="/spring-mvc-redirect" resourceType="4"/>
+<resources resourcePath="/spring-mvc-orm" resourceType="4"/>
+<resources resourcePath="/SpringORM" resourceType="4"/>
+<resources resourcePath="/SpringHeadFirstStart" resourceType="4"/>
+</mappings>
+</org.eclipse.team.ui.MODEL_PARTICIPANT_MAPPINGS>
+</org.eclipse.team.ui.MODEL_PARTICIPANT_SETTINGS>
+<gitSynchronizeData container="C:/Users/parteek.kumar/git/repository/SpringJdbc" dstRev="HEAD" inludeLocal="true" srcRev="HEAD"/>
+</data>
+</participant>
+</syncparticipants>
